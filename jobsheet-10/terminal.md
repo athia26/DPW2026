@@ -1,0 +1,1 @@
+docker run --rm -p 8080:8000 -v "$(pwd)":/app -w /app php-pgsql php -S 0.0.0.0:8000
