@@ -42,6 +42,6 @@ $_SESSION['buku'][] = [
     'kategori'=>$kategori
 ];
 
- $_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhail ditambahkan.'];
+ $_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhasil ditambahkan.'];
  header('Location: list.php');
  exit;
