@@ -46,8 +46,9 @@ $atmt->execute([
     'isbn' => $isbn,
     'stok' => (int) $stok,
     'kategori' => $kategori,
+    'id' => $id,
 ]);
 
-$_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhail diperbarui.'];
+$_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhasil diperbarui.'];
  header('Location: list.php');
  exit;

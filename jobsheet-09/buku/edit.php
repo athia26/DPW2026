@@ -7,13 +7,13 @@ $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 
 $id = $_GET['id'] ?? null;
-if ($id) {
+if (!$id) {
     header('Location: list.php');
     exit;
 }
 
 $stmt = $pdo->prepare("SELECT * FROM buku WHERE id = :id");
-$stmt->execute(['id => $id']);
+$stmt->execute(['id' => $id]);
 $buku = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$buku){

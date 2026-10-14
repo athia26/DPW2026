@@ -11,7 +11,7 @@ $id = $_POST['id'] ?? null;
 if ($id){
     $stmt = $pdo->prepare("DELETE FROM buku WHERE id = :id");
     $stmt->execute(['id' => $id]);
-    $_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhail dihapus.'];   
+    $_SESSION['flash'] = ['type' => 'success', 'pesan'=>'Buku berhasil dihapus.'];   
 }
 
 header('Location: list.php');
