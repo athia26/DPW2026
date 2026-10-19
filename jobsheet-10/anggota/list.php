@@ -16,7 +16,7 @@ $keyword = trim($_GET['q']??'');
 if ($keyword !== ''){
     $hitung = $pdo->prepare("SELECT COUNT(*) FROM anggota WHERE nama ILIKE :kw");
     $hitung->execute(['kw' => '%' . $keyword . '%']);
-    $totalRow = $hitung->fetchColumn();
+    $totalRow = $hitung->fethColumn();
 
     $stmt = $pdo->prepare("SELECT * FROM anggota WHERE nama ILIKE :kw ORDER BY id DESC LIMIT :limit OFFSET :offset");
     $stmt->bindValue('kw', '%' . $keyword . '%');
@@ -49,7 +49,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                 </form>
             </div>
 
-
+            
             <div class="table-responsive">
             <table>
                 <thead>
@@ -58,6 +58,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>No. HP</th>
+                        <th>Email</th>
                         <th>Aksi</th>
                     </tr>
                     
@@ -74,7 +75,8 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                             <td><?php echo $anggota['nama']; ?></td>
                             <td><?php echo $anggota['alamat']; ?></td>
                             <td><?php echo $anggota['no_hp']; ?></td>
-                             <td>
+                            <td><?php echo $anggota['email']; ?></td>
+                            <td>
                                 <a href="edit.php?id=<?php echo $anggota['id']; ?>" class="btn-edit">Edit</a>
                                 <form class="form-hapus" method="post" action="hapus.php">
                                     <input type="hidden" name="id" value="<?php echo $anggota['id']; ?>">

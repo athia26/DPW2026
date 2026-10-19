@@ -1,3 +1,5 @@
+
+
 function initNavToggle() {
     const toggleBtn = document.getElementById("nav-toggle-btn");
     const nav =document.querySelector("header nav");
@@ -101,6 +103,7 @@ function initValidasiForm(){
         if (!valid){
             e.preventDefault();
         }
+
     })
 }
 
@@ -110,5 +113,31 @@ document.addEventListener("DOMContentLoaded", function () {
     initHapusConfirm();
     initTableFilter();
     initValidasiForm();
+
+    const formEdit = document.getElementById('form-edit');
+
+    if (formEdit){
+        formEdit.addEventListener('submit', function(event){
+
+            const yakin = confirm("Apakah data yang diubah sudah benar?");
+
+            if(!yakin){
+                event.preventDefault();
+            }
+        });
+    }
+    
 });
 
+
+// toggle dropdown js
+const userMenuBtn = document.getElementById('user-menu-btn');
+const dropdown = document.getElementById('dropdown');
+
+if (userMenuBtn && dropdown){
+    userMenuBtn.addEventListener('click', function(){
+        dropdown.classList.toggle('show');
+    });
+}
+
+//konfirmasi edit

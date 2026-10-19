@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../includes/auth.php';
-session_start();
 require __DIR__ . '/../includes/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
@@ -16,4 +15,4 @@ if ($id){
 }
 
 header('Location: list.php');
- exit;
+exit;

@@ -37,8 +37,16 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
             <div class="auth-status">
                 <?php if($sudahLogin):?>
 
-                    <span><?php echo $_SESSION['nama']; ?></span>
-                    <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
+                    <div class="user-menu">
+                        <button type="button" id="user-menu-btn" class="user-menu-btn">
+                            <?php echo $_SESSION['nama']; ?>
+                            <img src="<?php echo $base; ?>assets/image/arrow.png" alt="menu" class="arrow-icon">
+                        </button>
+
+                        <div id="dropdown" class="dropdown">
+                            <a href="<?php echo $base; ?>auth/logout.php">Logout</a>
+                        </div>
+                    </div>
                     
                     <?php else: ?>
                         <a href="<?php echo $base; ?>auth/login.php">Login</a>

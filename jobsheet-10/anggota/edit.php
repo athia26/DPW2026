@@ -29,7 +29,7 @@ if (!$anggota) {
                 <p class="flash flash-<?php echo $flash['type']; ?>"><?php echo $flash['pesan']; ?></p>
             <?php endif; ?>
 
-            <form id="form-tambah" method="post" action="proses_edit.php">
+            <form method="post" action="proses_edit.php" id="form-edit">
                 <input type="hidden" name="id" value="<?php echo $anggota['id']; ?>">
                 <p>
                     <label for="nama">Nama</label><br>
@@ -46,6 +46,10 @@ if (!$anggota) {
                 <p>
                     <label for="no_hp">No. HP</label><br>
                     <input type="text" id="no_hp" name="no_hp" value="<?php echo $anggota['no_hp']; ?>">
+                </p>
+                <p>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" value="<?php echo $anggota['email']; ?>">
                 </p>
                 <p>
                     <button type="submit">Update</button>

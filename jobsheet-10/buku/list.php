@@ -57,6 +57,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                         <th>Judul</th>
                         <th>Pengarang</th>
                         <th>Tahun</th>
+                        <th>Kategori</th>
                         <th>Stok</th>
                         <th>Aksi</th>
                     </tr>
@@ -68,10 +69,11 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                     </tr>
                     <?php else:?>
                         <?php foreach($daftarBuku as $buku):?>
-                        <tr>
+                        <tr data-kategori="<?php echo strtolower($buku['kategori']);?>">
                             <td><?php echo $buku['judul']; ?></td>
                             <td><?php echo $buku['pengarang']; ?></td>
                             <td><?php echo $buku['tahun']; ?></td>
+                            <td><?php echo $buku['kategori']; ?></td>
                             <td><?php echo $buku['stok']; ?></td>
                             <td>
                                 <a href="edit.php?id=<?php echo $buku['id']?>" class="btn-edit">Edit</a>
@@ -82,7 +84,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
                             </td>
                         </tr>
                         <?php endforeach;?>
-                        <?php endif;?>
+                    <?php endif;?>
                 </tbody>
             </table>
             </div>

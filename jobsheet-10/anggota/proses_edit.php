@@ -7,6 +7,7 @@ $nama = trim($_POST['nama'] ?? '');
 $noAnggota = trim($_POST['no_anggota'] ?? '');
 $alamat = trim($_POST['alamat'] ?? '');
 $noHp = trim($_POST['no_hp'] ?? '');
+$email = trim($_POST['email'] ?? '');
 
 if (!$id) {
     header('Location: list.php');
@@ -29,7 +30,7 @@ if (!empty($errors)) {
 
 $stmt = $pdo->prepare(
     "UPDATE anggota SET nama = :nama, no_anggota = :no_anggota,
-     alamat = :alamat, no_hp = :no_hp WHERE id = :id"
+     alamat = :alamat, no_hp = :no_hp, email = :email WHERE id = :id"
 );
 $stmt->execute([
     'nama' => $nama,
@@ -37,6 +38,7 @@ $stmt->execute([
     'alamat' => $alamat,
     'no_hp' => $noHp,
     'id' => $id,
+    'email' => $email,
 ]);
 
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Anggota berhasil diperbarui.'];
